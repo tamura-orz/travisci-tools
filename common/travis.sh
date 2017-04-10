@@ -1,4 +1,4 @@
-export REPO_USER=AKIAJUW5QK7WUE7NCMCA
+export REPO_USER=AKIAIV2ZEUESZRTO6TEQ
 
 export DEVELOP_REPO_URL=http://tamutamu.test.s3.s3-website-ap-southeast-2.amazonaws.com
 export DEVELOP_REPO_NAME=repository
