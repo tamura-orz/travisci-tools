@@ -1,4 +1,4 @@
-export REPO_USER=nablarch
+export REPO_USER=AKIAJUW5QK7WUE7NCMCA
 
 export DEVELOP_REPO_URL=http://tamutamu.test.s3.s3-website-ap-southeast-2.amazonaws.com
 export DEVELOP_REPO_NAME=repository
