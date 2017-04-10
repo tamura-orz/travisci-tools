@@ -1,5 +1,9 @@
 language: java
 
+branches:
+  only: 
+    - develop
+
 jdk:
   - openjdk6
   
