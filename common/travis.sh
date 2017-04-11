@@ -1,7 +1,7 @@
 export REPO_USER=AKIAIS5CQUHDMFQW6VXA
 
-export DEVELOP_REPO_URL=http://tamutamu.test.s3.s3-website-ap-southeast-2.amazonaws.com
-export DEVELOP_REPO_NAME=repository
+export DEVELOP_REPO_URL=s3://tamutamu.test.s3
+export DEVELOP_REPO_NAME=repo2
 
 export DEPLOY_HOST_URL=s3://tamutamu.test.s3
 export DEPLOY_REPO_NAME=repo2
