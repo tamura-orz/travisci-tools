@@ -10,6 +10,9 @@ jdk:
 before_install:
   - "source <(curl -H 'Cache-Control: no-cache' -s https://raw.githubusercontent.com/tamura-orz/travisci-tools/master/common/travis.sh)"
   - chmod +x gradlew
+
+# For Skip [gradle assemble].
+install: true
   
 cache:
   directories:
