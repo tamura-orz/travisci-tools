@@ -19,11 +19,13 @@ popd
 
 # プルリク時はビルドのみ。マージ時はデプロイを行う。
 if [ "$TRAVIS_PULL_REQUEST" == "true" ];then
+  echo "@@@ PULL REQ Create."
   ./gradlew build -PuseRepoCredentials=true -PnablarchRepoUsername=${REPO_USER} \
                            -PnablarchRepoPassword=${DEPLOY_PASSWORD} -PnablarchRepoReferenceUrl=${DEVELOP_REPO_URL} \
                            -PnablarchRepoReferenceName=${DEVELOP_REPO_NAME} -PnablarchRepoDeployUrl=${DEPLOY_HOST_URL} \
                            -PnablarchRepoName=${DEPLOY_REPO_NAME} --no-daemon  
 else
+  echo "@@@ PULL REQ Merge."
   ./gradlew uploadArchives -PuseRepoCredentials=true -PnablarchRepoUsername=${REPO_USER} \
                            -PnablarchRepoPassword=${DEPLOY_PASSWORD} -PnablarchRepoReferenceUrl=${DEVELOP_REPO_URL} \
                            -PnablarchRepoReferenceName=${DEVELOP_REPO_NAME} -PnablarchRepoDeployUrl=${DEPLOY_HOST_URL} \
