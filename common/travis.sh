@@ -18,4 +18,14 @@ popd
 
 
 # プルリク時はビルドのみ。マージ時はデプロイを行う。
-./gradlew --stacktrace uploadArchives -PuseRepoCredentials=true -PnablarchRepoUsername=${REPO_USER} -PnablarchRepoPassword=${DEPLOY_PASSWORD} -PnablarchRepoReferenceUrl=${DEVELOP_REPO_URL} -PnablarchRepoReferenceName=${DEVELOP_REPO_NAME} -PnablarchRepoDeployUrl=${DEPLOY_HOST_URL} -PnablarchRepoName=${DEPLOY_REPO_NAME} --no-daemon
+if [ "$TRAVIS_PULL_REQUEST" == "true" ];then
+  ./gradlew build -PuseRepoCredentials=true -PnablarchRepoUsername=${REPO_USER} \
+                           -PnablarchRepoPassword=${DEPLOY_PASSWORD} -PnablarchRepoReferenceUrl=${DEVELOP_REPO_URL} \
+                           -PnablarchRepoReferenceName=${DEVELOP_REPO_NAME} -PnablarchRepoDeployUrl=${DEPLOY_HOST_URL} \
+                           -PnablarchRepoName=${DEPLOY_REPO_NAME} --no-daemon  
+else
+  ./gradlew uploadArchives -PuseRepoCredentials=true -PnablarchRepoUsername=${REPO_USER} \
+                           -PnablarchRepoPassword=${DEPLOY_PASSWORD} -PnablarchRepoReferenceUrl=${DEVELOP_REPO_URL} \
+                           -PnablarchRepoReferenceName=${DEVELOP_REPO_NAME} -PnablarchRepoDeployUrl=${DEPLOY_HOST_URL} \
+                           -PnablarchRepoName=${DEPLOY_REPO_NAME} --no-daemon
+fi
