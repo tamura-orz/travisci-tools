@@ -18,6 +18,8 @@ popd
 
 
 # プルリク時はビルドのみ。マージ時はデプロイを行う。
+echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+echo $TRAVIS_PULL_REQUEST
 if [ "$TRAVIS_PULL_REQUEST" == "true" ];then
   echo "@@@ PULL REQ Create."
   ./gradlew build -PuseRepoCredentials=true -PnablarchRepoUsername=${REPO_USER} \
